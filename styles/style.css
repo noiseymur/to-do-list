@@ -1,0 +1,402 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 18px;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  background-color: #f7e6ff;
+}
+
+.main .header-image {
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #7304a7;
+}
+
+.main .header-image .img {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/day1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 50%;
+}
+
+.the-app {
+  position: static;
+  z-index: 1;
+  margin-top: 100px;
+  width: 500px;
+}
+
+.the-app .app-header {
+  width: 500px;
+  display: -ms-grid;
+  display: grid;
+  grid-template: "a b" -webkit-max-content "c c" auto / auto auto;
+  grid-template: "a b" max-content "c c" auto / auto auto;
+}
+
+.the-app .app-header h1 {
+  grid-area: a;
+  font-size: 34px;
+  color: white;
+  letter-spacing: 10px;
+}
+
+.the-app .app-header .mode-change {
+  grid-area: b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.the-app .app-header .mode-change i {
+  font-size: 24px;
+  color: white;
+}
+
+.the-app .app-header .mode-change .day {
+  display: none;
+}
+
+.the-app .app-header .md-night .day {
+  display: block;
+}
+
+.the-app .app-header .md-night .night {
+  display: none;
+}
+
+.the-app .app-header .new-todo {
+  margin-top: 30px;
+  grid-area: c;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.the-app .app-header .new-todo .clear-box {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: white;
+  color: white;
+  border: 1px solid #d2d3db;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.the-app .app-header .new-todo .clear-box i {
+  font-size: 10px;
+  pointer-events: none;
+}
+
+.the-app .app-header .new-todo .cb-active {
+  border: none;
+  background-color: #ca4848;
+}
+
+.the-app .app-header .new-todo .cb-active:hover {
+  color: #ca4848;
+  background-color: white;
+  border: 2px solid #ca4848;
+}
+
+.the-app .app-header .new-todo input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 20px;
+  border: none;
+}
+
+.the-app .app-header .new-todo input:focus {
+  outline: none;
+}
+
+.the-app .todos {
+  margin-top: 30px;
+  width: 100%;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.the-app .todos .a-todo {
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 2px solid #f1f1f1;
+  position: relative;
+}
+
+.the-app .todos .a-todo:nth-of-type(1) {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.the-app .todos .a-todo .check-box {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #d2d3db;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  cursor: pointer;
+}
+
+.the-app .todos .a-todo .check-box i {
+  font-size: 10px;
+  pointer-events: none;
+}
+
+.the-app .todos .a-todo .check-box:hover {
+  border: 2px solid #c058f3;
+}
+
+.the-app .todos .a-todo .delete {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ca4848;
+  border: 2px solid white;
+  color: white;
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateX(50%) translateY(0%);
+          transform: translateX(50%) translateY(0%);
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.the-app .todos .a-todo .delete i {
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.the-app .todos .a-todo .delete:hover {
+  background-color: white;
+  color: #ca4848;
+  border-color: #ca4848;
+}
+
+.the-app .todos .a-todo .delete.active {
+  -webkit-transform: translateX(50%) translateY(-50%);
+          transform: translateX(50%) translateY(-50%);
+  opacity: 1;
+}
+
+.the-app .todos .a-todo p {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 20px;
+  word-break: break-word;
+}
+
+.the-app .todos .a-todo.done .check-box {
+  border: none;
+  background-color: transparent;
+  background-image: linear-gradient(135deg, #57ddff, #c058f3);
+}
+
+.the-app .todos .a-todo.done p {
+  color: grey;
+  text-decoration: line-through;
+}
+
+.the-app .todos .hidden {
+  display: none;
+}
+
+.the-app .todos .template {
+  display: none !important;
+}
+
+.the-app .todos .controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  position: relative;
+}
+
+.the-app .todos .controls .filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+
+.the-app .todos .controls .filter p {
+  margin: 0 6px;
+}
+
+.the-app .todos .controls .filter p:hover {
+  color: #3a7bfd;
+  cursor: pointer;
+}
+
+.the-app .todos .controls .filter p.active {
+  color: #3a7bfd;
+  cursor: pointer;
+}
+
+.the-app .todos .controls p,
+.the-app .todos .controls span {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.the-app .todos .controls p.clear-done:hover {
+  color: #3a7bfd;
+  cursor: pointer;
+}
+
+.the-app .todos .controls.none {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .the-app {
+    z-index: 1;
+    margin-top: 100px;
+    width: 80vw;
+  }
+  .the-app .app-header {
+    width: 100%;
+    display: -ms-grid;
+    display: grid;
+    grid-template: "a b" -webkit-max-content "c c" auto / auto auto;
+    grid-template: "a b" max-content "c c" auto / auto auto;
+  }
+  .the-app .todos .controls {
+    padding: 40px 0;
+    height: 220px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .the-app .todos .controls .filter {
+    position: static;
+    -webkit-transform: none;
+            transform: none;
+  }
+  .the-app .todos .controls .filter p {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 2px solid #8b58a7;
+    color: #8b58a7;
+  }
+  .the-app .todos .controls .filter p.active {
+    border: none;
+    background-color: #8b58a7;
+    color: white;
+  }
+}
+
+@media (max-width: 410px) {
+  .the-app .todos .controls {
+    height: auto;
+  }
+  .the-app .todos .controls .filter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 20px 0;
+  }
+  .the-app .todos .controls .filter p {
+    margin: 20px 0;
+    text-align: center;
+  }
+  .the-app .todos .controls .filter p:nth-of-type(2) {
+    margin: 0;
+  }
+}
+/*# sourceMappingURL=style.css.map */

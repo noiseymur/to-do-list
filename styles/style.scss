@@ -1,0 +1,332 @@
+@import "./defaults";
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-color: rgb(247, 230, 255);
+
+  .header-image {
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    .img {
+      width: 100%;
+      height: 100%;
+      background-image: url("../img/day1.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 50%;
+    }
+    background-color: rgb(115, 4, 167);
+  }
+}
+
+.the-app {
+  position: static;
+  z-index: 1;
+  margin-top: 100px;
+  width: 500px;
+
+  .app-header {
+    width: 500px;
+    display: grid;
+    grid-template:
+      "a b" max-content
+      "c c" auto / auto auto;
+
+    h1 {
+      grid-area: a;
+      font-size: 34px;
+      color: white;
+      letter-spacing: 10px;
+    }
+
+    .mode-change {
+      grid-area: b;
+      display: flex;
+      justify-content: flex-end;
+      i {
+        font-size: 24px;
+        color: white;
+      }
+
+      .day {
+        display: none;
+      }
+    }
+
+    .md-night {
+      .day {
+        display: block;
+      }
+      .night {
+        display: none;
+      }
+    }
+
+    .new-todo {
+      margin-top: 30px;
+      grid-area: c;
+      width: 100%;
+      background-color: white;
+      padding: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+
+      .clear-box {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: white;
+        color: white;
+        border: 1px solid $lgb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        i {
+          font-size: 10px;
+          pointer-events: none;
+        }
+      }
+
+      .cb-active {
+        border: none;
+        background-color: rgb(202, 72, 72);
+
+        &:hover {
+          color: rgb(202, 72, 72);
+          background-color: white;
+          border: 2px solid rgb(202, 72, 72);
+        }
+      }
+      input {
+        flex: 1;
+        margin-left: 20px;
+        border: none;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .todos {
+    margin-top: 30px;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    .a-todo {
+      width: 100%;
+      background-color: white;
+      padding: 20px;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      border-bottom: 2px solid rgb(241, 241, 241);
+      position: relative;
+
+      &:nth-of-type(1) {
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+      }
+
+      .check-box {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: 1px solid $lgb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        cursor: pointer;
+        i {
+          font-size: 10px;
+          pointer-events: none;
+        }
+        &:hover {
+          border: 2px solid hsl(280, 87%, 65%);
+        }
+      }
+
+      .delete {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(202, 72, 72);
+        border: 2px solid white;
+        color: white;
+        position: absolute;
+        cursor: pointer;
+        top: 50%;
+        right: 0;
+        transform: translateX(50%) translateY(0%);
+        opacity: 0;
+        transition: all 0.2s ease-out;
+        i {
+          font-size: 14px;
+          pointer-events: none;
+        }
+        &:hover {
+          background-color: white;
+          color: rgb(202, 72, 72);
+          border-color: rgb(202, 72, 72);
+        }
+      }
+
+      .delete.active {
+        transform: translateX(50%) translateY(-50%);
+        opacity: 1;
+      }
+
+      p {
+        flex: 1;
+        margin-left: 20px;
+        word-break: break-word;
+      }
+    }
+
+    .a-todo.done {
+      .check-box {
+        border: none;
+        background-color: transparent;
+        background-image: $chb;
+      }
+      p {
+        color: grey;
+        text-decoration: line-through;
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .template {
+      display: none !important;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 20px;
+      background-color: white;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      position: relative;
+
+      .filter {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        p {
+          margin: 0 6px;
+
+          &:hover {
+            color: $pbb;
+            cursor: pointer;
+          }
+        }
+
+        p.active {
+          color: $pbb;
+          cursor: pointer;
+        }
+      }
+
+      p,
+      span {
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      p.clear-done:hover {
+        color: $pbb;
+        cursor: pointer;
+      }
+    }
+
+    .controls.none {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .the-app {
+    z-index: 1;
+    margin-top: 100px;
+    width: 80vw;
+
+    .app-header {
+      width: 100%;
+      display: grid;
+      grid-template:
+        "a b" max-content
+        "c c" auto / auto auto;
+    }
+
+    .todos {
+      .controls {
+        padding: 40px 0;
+        height: 220px;
+        flex-direction: column;
+        align-items: center;
+        .filter {
+          position: static;
+          transform: none;
+
+          p {
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: 2px solid hsl(279, 31%, 50%);
+            color: hsl(279, 31%, 50%);
+          }
+
+          p.active {
+            border: none;
+            background-color: hsl(279, 31%, 50%);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 410px) {
+  .the-app .todos .controls {
+    height: auto;
+    .filter {
+      display: flex;
+      flex-direction: column;
+      margin: 20px 0;
+
+      p {
+        margin: 20px 0;
+        text-align: center;
+
+        &:nth-of-type(2) {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script async src="https://kit.fontawesome.com/3c8d729e68.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="main">
+        <div class="header-image"><div class="img"></div></div>
+        <div class="the-app">
+            <div class="app-header">
+                <h1>TODO</h1>
+                <div class="mode-change md-night">
+                    <i class="fas fa-moon night"></i>
+                    <i class="fas fa-certificate day"></i>
+                </div>
+                <div class="new-todo">
+                    <div class="clear-box">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <input type="text" name="" id="" placeholder="Create a new todo...">
+                </div>
+            </div>
+            <div class="todos">
+                <div class="a-todo template">
+                    <div class="check-box">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <p>Finish coding this app</p>
+                    <div class="delete">
+                        <i class="fas fa-trash"></i>
+                    </div>
+                </div>
+                <div class="controls none">
+                    <p><span class="left-count">5</span> items left</p>
+                    <div class="filter">
+                        <p class="active filter-option f-all">All</p>
+                        <p class="filter-option f-active">Active</p>
+                        <p class="filter-option f-completed">Completed</p>
+                    </div>
+                    <p class="clear-done">Clear Completed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./scripts/script.js"></script>
+</body>
+</html>
