@@ -40,6 +40,10 @@
   opacity: 50%;
 }
 
+.focusout {
+  display: none;
+}
+
 .the-app {
   position: static;
   z-index: 1;
@@ -70,23 +74,21 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  cursor: pointer;
 }
 
 .the-app .app-header .mode-change i {
   font-size: 24px;
   color: white;
-}
-
-.the-app .app-header .mode-change .day {
-  display: none;
+  pointer-events: none;
 }
 
 .the-app .app-header .md-night .day {
-  display: block;
+  display: none;
 }
 
 .the-app .app-header .md-night .night {
-  display: none;
+  display: block;
 }
 
 .the-app .app-header .new-todo {
@@ -173,11 +175,7 @@
           align-items: center;
   border-bottom: 2px solid #f1f1f1;
   position: relative;
-}
-
-.the-app .todos .a-todo:nth-of-type(1) {
-  border-top-right-radius: 4px;
-  border-top-left-radius: 4px;
+  border-radius: 4px;
 }
 
 .the-app .todos .a-todo .check-box {
@@ -290,8 +288,7 @@
   width: 100%;
   padding: 20px;
   background-color: white;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-radius: 4px;
   position: relative;
 }
 
@@ -371,9 +368,22 @@
     color: #8b58a7;
   }
   .the-app .todos .controls .filter p.active {
-    border: none;
+    border-color: #8b58a7;
     background-color: #8b58a7;
     color: white;
+  }
+  .the-app-dark .todos .controls .filter p {
+    background-color: transparent;
+    border: 2px solid rgba(172, 162, 189, 0.5);
+    color: white;
+  }
+  .the-app-dark .todos .controls .filter p:hover {
+    background-color: rgba(172, 162, 189, 0.5);
+    border: 2px solid rgba(172, 162, 189, 0);
+    color: white;
+  }
+  .the-app-dark .todos .controls p.clear-done:hover {
+    color: #8b58a7;
   }
 }
 
@@ -398,5 +408,60 @@
   .the-app .todos .controls .filter p:nth-of-type(2) {
     margin: 0;
   }
+}
+
+.main-dark {
+  background-color: #161722;
+}
+
+.main-dark .header-image .img {
+  background-image: url(../img/night1.jpg);
+  opacity: 25%;
+}
+
+.the-app-dark .app-header .new-todo {
+  background-color: #25273c;
+}
+
+.the-app-dark .app-header .new-todo input {
+  background-color: #25273c;
+  color: white;
+}
+
+.the-app-dark .app-header .new-todo .clear-box {
+  background-color: #25273c;
+  color: #25273c;
+}
+
+.the-app-dark .app-header .new-todo .cb-active {
+  background-color: #ca4848;
+  color: white;
+}
+
+.the-app-dark .app-header .md-night .day {
+  display: block;
+}
+
+.the-app-dark .app-header .md-night .night {
+  display: none;
+}
+
+.the-app-dark .todos .a-todo {
+  background-color: #25273c;
+  border-bottom: 2px solid #4d5066;
+  color: white;
+}
+
+.the-app-dark .todos .a-todo .check-box {
+  color: #25273c;
+}
+
+.the-app-dark .a-todo.done .check-box {
+  color: white;
+}
+
+.the-app-dark .todos .controls {
+  background-color: #25273c;
+  color: #e4e5f1;
 }
 /*# sourceMappingURL=style.css.map */

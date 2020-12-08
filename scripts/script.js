@@ -51,6 +51,7 @@ window.addEventListener('keydown',(e)=>{
             controls.classList.remove('none');
             activeTodos();
             storeTodos();
+            document.querySelector('.focusout').focus();
         }
     }
 });
@@ -190,3 +191,14 @@ function isTaskLeft () {
         controls.classList.add('none');
     }
 }
+
+//Dark Mode toggle
+
+let mainCtn = document.querySelector('.main');
+let theApp = document.querySelector('.the-app');
+let toggleMode = document.querySelector('.mode-change');
+
+toggleMode.addEventListener('click',()=>{
+    mainCtn.classList.toggle('main-dark');
+    theApp.classList.toggle('the-app-dark');
+})

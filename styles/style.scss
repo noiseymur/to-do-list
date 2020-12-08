@@ -29,6 +29,10 @@
   }
 }
 
+.focusout {
+  display: none;
+}
+
 .the-app {
   position: static;
   z-index: 1;
@@ -53,22 +57,20 @@
       grid-area: b;
       display: flex;
       justify-content: flex-end;
+      cursor: pointer;
       i {
         font-size: 24px;
         color: white;
-      }
-
-      .day {
-        display: none;
+        pointer-events: none;
       }
     }
 
     .md-night {
       .day {
-        display: block;
+        display: none;
       }
       .night {
-        display: none;
+        display: block;
       }
     }
 
@@ -134,11 +136,12 @@
       align-items: center;
       border-bottom: 2px solid rgb(241, 241, 241);
       position: relative;
+      border-radius: 4px;
 
-      &:nth-of-type(1) {
-        border-top-right-radius: 4px;
-        border-top-left-radius: 4px;
-      }
+      // &:first-of-type {
+      //   border-top-right-radius: 4px;
+      //   border-top-left-radius: 4px;
+      // }
 
       .check-box {
         flex-shrink: 0;
@@ -226,8 +229,7 @@
       width: 100%;
       padding: 20px;
       background-color: white;
-      border-bottom-left-radius: 4px;
-      border-bottom-right-radius: 4px;
+      border-radius: 4px;
       position: relative;
 
       .filter {
@@ -301,12 +303,32 @@
           }
 
           p.active {
-            border: none;
+            border-color: hsl(279, 31%, 50%);
             background-color: hsl(279, 31%, 50%);
             color: white;
           }
         }
       }
+    }
+  }
+
+  .the-app-dark .todos .controls .filter {
+    p {
+      background-color: transparent;
+      border: 2px solid rgba(172, 162, 189, 0.5);
+      color: white;
+
+      &:hover {
+        background-color: rgba(172, 162, 189, 0.5);
+        border: 2px solid rgba(172, 162, 189, 0);
+        color: white;
+      }
+    }
+  }
+
+  .the-app-dark .todos .controls {
+    p.clear-done:hover {
+      color: hsl(279, 31%, 50%);
     }
   }
 }
@@ -328,5 +350,63 @@
         }
       }
     }
+  }
+}
+
+//Dark Mode
+
+.main-dark {
+  background-color: hsl(235, 21%, 11%);
+
+  .header-image .img {
+    background-image: url(../img/night1.jpg);
+    opacity: 25%;
+  }
+}
+
+.the-app-dark {
+  .app-header .new-todo {
+    background-color: hsl(235, 24%, 19%);
+    input {
+      background-color: hsl(235, 24%, 19%);
+      color: white;
+    }
+    .clear-box {
+      background-color: hsl(235, 24%, 19%);
+      color: hsl(235, 24%, 19%);
+    }
+
+    .cb-active {
+      background-color: rgb(202, 72, 72);
+      color: white;
+    }
+  }
+
+  .app-header .md-night {
+    .day {
+      display: block;
+    }
+    .night {
+      display: none;
+    }
+  }
+
+  .todos .a-todo {
+    background-color: hsl(235, 24%, 19%);
+    border-bottom: 2px solid hsl(233, 14%, 35%);
+    color: white;
+
+    .check-box {
+      color: hsl(235, 24%, 19%);
+    }
+  }
+
+  .a-todo.done .check-box {
+    color: white;
+  }
+
+  .todos .controls {
+    background-color: hsl(235, 24%, 19%);
+    color: hsl(236, 33%, 92%);
   }
 }
